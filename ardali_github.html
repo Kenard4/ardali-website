@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ken Ardali — Interim MD | Commercial Growth | Cross-Border E-Commerce</title>
+  <meta name="description" content="Ken Ardali unblocks commercial growth that's stalled. Interim MD, commercial lead, and market entry specialist with 30 years across FMCG, e-commerce, and international expansion.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1a2744; --navy-light: #223060; --gold: #c9a84c; --gold-light: #e0bf72;
+      --white: #ffffff; --off-white: #f7f7f5; --grey: #e8e8e4;
+      --text-dark: #1a2744; --text-mid: #4a5568; --text-light: #718096;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text-dark); background: var(--white); -webkit-font-smoothing: antialiased; }
+
+    /* SCROLL ANIMATIONS */
+    .fade-up { opacity: 0; transform: translateY(36px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; } .delay-4 { transition-delay: 0.4s; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,39,68,0.97); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 60px; }
+    .nav-left { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-avatar { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--gold); object-fit: cover; }
+    .nav-name { color: var(--white); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.04em; }
+    .nav-name span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.03em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 0.45rem 1.1rem !important; border-radius: 3px; font-weight: 600 !important; font-size: 0.82rem !important; }
+
+    /* HERO */
+    #hero { background: var(--navy); min-height: 100vh; display: flex; align-items: center; padding: 100px 5% 80px; position: relative; overflow: hidden; }
+    #hero::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Cg fill='none' stroke='rgba(201,168,76,0.06)' stroke-width='1'%3E%3Ccircle cx='600' cy='300' r='220'/%3E%3Ccircle cx='600' cy='300' r='310'/%3E%3Ccircle cx='600' cy='300' r='400'/%3E%3Cline x1='0' y1='300' x2='1200' y2='300'/%3E%3Cline x1='600' y1='0' x2='600' y2='600'/%3E%3C/g%3E%3C/svg%3E"); background-size: cover; background-position: center; }
+    .hero-inner { position: relative; z-index: 1; width: 100%; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
+    .hero-content { max-width: 640px; }
+    .hero-eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+    .hero-headline { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); color: var(--white); line-height: 1.15; margin-bottom: 1.5rem; }
+    .hero-headline em { font-style: normal; color: var(--gold); }
+    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 2.5rem; max-width: 540px; }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+    .pill { border: 1px solid rgba(201,168,76,0.35); color: rgba(255,255,255,0.7); font-size: 0.78rem; padding: 0.3rem 0.75rem; border-radius: 20px; }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-block; background: var(--gold); color: var(--navy); text-decoration: none; padding: 0.85rem 2rem; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.04em; border-radius: 3px; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-secondary { display: inline-block; border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); text-decoration: none; padding: 0.85rem 2rem; font-weight: 500; font-size: 0.9rem; border-radius: 3px; transition: border-color 0.2s, color 0.2s; }
+    .hero-photo { flex-shrink: 0; }
+    .hero-photo-ring { width: 300px; height: 300px; border-radius: 50%; border: 3px solid var(--gold); padding: 5px; background: rgba(201,168,76,0.1); box-shadow: 0 0 60px rgba(201,168,76,0.15), 0 20px 60px rgba(0,0,0,0.4); }
+    .hero-photo-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+
+    /* SECTIONS */
+    section { padding: 90px 5%; }
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--navy); line-height: 1.2; margin-bottom: 1.2rem; max-width: 700px; }
+    .section-title.light { color: var(--white); }
+    .section-body { font-size: 1rem; line-height: 1.8; color: var(--text-mid); max-width: 660px; margin-bottom: 3rem; }
+    .section-body.light { color: rgba(255,255,255,0.65); }
+
+    /* PROBLEM */
+    #problem { background: var(--off-white); }
+    .problem-intro { font-size: 1.15rem; line-height: 1.8; color: var(--text-mid); max-width: 700px; margin-bottom: 3rem; }
+    .problem-intro strong { color: var(--navy); }
+    .problem-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    .problem-card { background: var(--white); border-top: 3px solid var(--gold); padding: 1.8rem; border-radius: 2px; transition: box-shadow 0.25s, transform 0.25s; }
+    .problem-card:hover { box-shadow: 0 8px 30px rgba(26,39,68,0.1); transform: translateY(-3px); }
+    .problem-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
+    .problem-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
+
+    /* CONTEXTS */
+    #contexts { background: var(--white); }
+    .context-statement { font-size: 1.05rem; line-height: 1.8; color: var(--text-mid); max-width: 660px; margin-bottom: 3rem; padding: 1.5rem; border-left: 3px solid var(--gold); background: var(--off-white); }
+    .context-statement strong { color: var(--navy); }
+    .context-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+    .context-num { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 0.6rem; }
+    .context-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--grey); }
+    .context-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.75; }
+    .context-result { margin-top: 0.8rem; font-size: 0.82rem; color: var(--navy); font-weight: 600; background: var(--off-white); padding: 0.5rem 0.75rem; border-radius: 2px; }
+
+    /* PROOF */
+    #proof { background: var(--navy); }
+    .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+    .proof-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; padding: 1.8rem; transition: background 0.2s, transform 0.2s, border-color 0.2s; }
+    .proof-card:hover { background: rgba(255,255,255,0.09); transform: translateY(-3px); border-color: rgba(201,168,76,0.3); }
+    .proof-company { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+    .proof-challenge { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 1rem; }
+    .proof-result { font-size: 1.1rem; font-weight: 700; color: var(--white); line-height: 1.5; }
+    .proof-result span { display: block; font-size: 0.82rem; font-weight: 400; color: rgba(255,255,255,0.5); margin-top: 0.25rem; }
+
+    /* BRANDS */
+    #brands { background: var(--off-white); }
+    .brands-group { margin-bottom: 2.5rem; }
+    .brands-group-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem; }
+    .brands-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .brand-tag { background: var(--white); border: 1px solid var(--grey); color: var(--text-dark); font-size: 0.85rem; font-weight: 500; padding: 0.4rem 0.9rem; border-radius: 2px; transition: border-color 0.2s, color 0.2s; }
+    .brand-tag:hover { border-color: var(--gold); color: var(--navy); }
+
+    /* ABOUT */
+    #about { background: var(--white); }
+    .about-layout { display: grid; grid-template-columns: auto 1fr 1fr; gap: 3.5rem; align-items: start; }
+    .about-photo-col { text-align: center; }
+    .about-portrait { width: 180px; height: 180px; border-radius: 50%; border: 3px solid var(--gold); padding: 4px; background: var(--off-white); box-shadow: 0 8px 40px rgba(26,39,68,0.15); }
+    .about-portrait img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+    .about-portrait-name { margin-top: 0.85rem; font-size: 0.88rem; font-weight: 700; color: var(--navy); }
+    .about-portrait-title { font-size: 0.75rem; color: var(--text-light); margin-top: 0.2rem; }
+    .about-bio { font-size: 1rem; line-height: 1.85; color: var(--text-mid); }
+    .about-bio p { margin-bottom: 1rem; }
+    .about-bio strong { color: var(--navy); }
+    .about-facts { display: flex; flex-direction: column; gap: 1.5rem; }
+    .fact { padding: 1.2rem 1.5rem; background: var(--off-white); border-left: 3px solid var(--gold); }
+    .fact-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.4rem; }
+    .fact-value { font-size: 0.92rem; color: var(--navy); font-weight: 500; line-height: 1.6; }
+
+    /* CONTACT */
+    #contact { background: var(--navy); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .contact-text { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 2rem; }
+    .contact-items { display: flex; flex-direction: column; gap: 1.2rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .contact-item-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); min-width: 70px; padding-top: 2px; }
+    .contact-item-value { font-size: 0.95rem; color: var(--white); }
+    .contact-item-value a { color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); transition: border-color 0.2s, color 0.2s; }
+    .contact-item-value a:hover { border-color: var(--gold); color: var(--gold); }
+    .availability { margin-top: 2rem; padding: 1.2rem 1.5rem; border: 1px solid rgba(201,168,76,0.3); border-radius: 3px; }
+    .availability-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .availability-text { font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+    .contact-photo-side { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
+    .contact-portrait { width: 140px; height: 140px; border-radius: 50%; border: 2px solid rgba(201,168,76,0.5); padding: 4px; }
+    .contact-portrait img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+    .contact-portrait-text { text-align: center; }
+    .contact-portrait-text p:first-child { font-weight: 700; color: var(--white); font-size: 1rem; }
+    .contact-portrait-text p:last-child { color: rgba(255,255,255,0.4); font-size: 0.78rem; letter-spacing: 0.08em; margin-top: 0.2rem; }
+
+    /* FOOTER */
+    footer { background: #111c30; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.78rem; }
+    footer a:hover { color: var(--gold); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo { display: flex; justify-content: center; order: -1; }
+      .hero-photo-ring { width: 200px; height: 200px; }
+      .about-layout { grid-template-columns: 1fr; }
+      .about-photo-col { display: flex; align-items: center; gap: 1.5rem; text-align: left; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 4%; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      section { padding: 70px 4%; }
+      #hero { padding: 90px 4% 70px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .problem-cards, .proof-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; }
+      .btn-primary, .btn-secondary { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#hero" class="nav-left">
+      <img class="nav-avatar" src="photo.jpg" alt="Ken Ardali">
+      <span class="nav-name">Ken Ardali <span>&middot;</span> ardali.co.uk</span>
+    </a>
+    <div class="nav-links">
+      <a href="#problem">The Problem</a>
+      <a href="#proof">Proof</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Let's Talk</a>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Ken Ardali &mdash; Interim MD</p>
+        <h1 class="hero-headline">I unblock commercial growth<br>that's <em>stalled</em>.</h1>
+        <p class="hero-sub">Whether a P&amp;L is going sideways, a channel has dried up, a market you can't crack without burning cash, or a team that's lost its edge — I diagnose quickly and execute without the onboarding curve.</p>
+        <div class="hero-pills">
+          <span class="pill">Commercial Turnaround</span>
+          <span class="pill">Cross-Border E-Commerce</span>
+          <span class="pill">International Expansion</span>
+          <span class="pill">China · Europe · Turkey · UK</span>
+        </div>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Let's Talk</a>
+          <a href="#proof" class="btn-secondary">See the Proof</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="hero-photo-ring">
+          <img src="photo.jpg" alt="Ken Ardali" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="problem">
+    <p class="section-label fade-up">The Problem I Solve</p>
+    <h2 class="section-title fade-up delay-1">You're here because something in the commercial engine has stopped working.</h2>
+    <p class="problem-intro fade-up delay-2">The people closest to the problem are usually too embedded in what used to work to see over it. They need someone who's seen this pattern before — across industries, markets, and decades — and can call it quickly. <strong>That's where I come in.</strong></p>
+    <div class="problem-cards">
+      <div class="problem-card fade-up delay-1">
+        <h3>The P&amp;L is going sideways</h3>
+        <p>A business unit is underperforming, costs are out of control, or a key customer has left. You need it stabilised fast — without adding permanent headcount.</p>
+      </div>
+      <div class="problem-card fade-up delay-2">
+        <h3>A channel has dried up</h3>
+        <p>The traditional routes to market are plateauing and the team doesn't know what replaces them. E-commerce, cross-border, new platforms — the answer exists, but not inside the building.</p>
+      </div>
+      <div class="problem-card fade-up delay-3">
+        <h3>International is burning cash</h3>
+        <p>Most companies do internationalisation at negative margin for years. The smarter model — cross-border trade structures, bonded warehouses, platform-native approaches — gets you to profitability faster.</p>
+      </div>
+      <div class="problem-card fade-up delay-4">
+        <h3>The team has lost its edge</h3>
+        <p>Low morale, high attrition, pipeline running dry. You need clear-eyed leadership that can reset expectations, exit poor performers, and rebuild momentum — now.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contexts">
+    <p class="section-label fade-up">How I Work</p>
+    <h2 class="section-title fade-up delay-1">I don't produce recommendations. I take accountability and execute.</h2>
+    <div class="context-statement fade-up delay-2">I operate as <strong>interim MD, commercial lead, or market entry specialist</strong>. Three decades across traditional commercial leadership and the digital/cross-border world means I can tell you quickly which ceiling you've actually hit.</div>
+    <div class="context-grid">
+      <div class="context-card fade-up delay-1"><p class="context-num">01</p><h3>Commercial Turnaround</h3><p>Distressed unit, demoralised team, or a P&amp;L that needs fixing while leadership stabilises. Fast diagnosis, clear-out, rebuild.</p><p class="context-result">Electrolux UK: &pound;1m loss &rarr; &pound;1.3m profit in year one</p></div>
+      <div class="context-card fade-up delay-2"><p class="context-num">02</p><h3>New Channel Entry</h3><p>Traditional businesses that have missed the digital window and need to move fast. E-commerce, marketplace, China cross-border — I know the platforms from the inside.</p><p class="context-result">SGS: 104% ecommerce revenue growth in two years</p></div>
+      <div class="context-card fade-up delay-3"><p class="context-num">03</p><h3>Internationalisation</h3><p>Not just "go global" — structured market entry that doesn't bleed cash for years. Cross-border trade models, bonded warehouses, platform-native launch.</p><p class="context-result">Alibaba: 750+ stores live, &pound;400m/month GMV in two years</p></div>
+      <div class="context-card fade-up delay-4"><p class="context-num">04</p><h3>Post-Acquisition Integration</h3><p>When two commercial organisations need to become one, fast, without losing revenue momentum. Multi-brand, multi-territory, cross-cultural.</p><p class="context-result">Spectrum Brands: multi-brand integration across European territories</p></div>
+    </div>
+  </section>
+
+  <section id="proof">
+    <p class="section-label fade-up" style="color:var(--gold)">Proof</p>
+    <h2 class="section-title light fade-up delay-1">Five situations where growth had hit a ceiling — and what happened.</h2>
+    <p class="section-body light fade-up delay-2">Every engagement is different. The pattern is always the same: a commercial problem that the people inside couldn't fix fast enough.</p>
+    <div class="proof-grid">
+      <div class="proof-card fade-up delay-1"><p class="proof-company">Electrolux Professional UK</p><p class="proof-challenge">Years of managerial instability, a demotivated workforce, and significant losses. No one inside could diagnose the problem clearly enough to fix it.</p><p class="proof-result">&pound;1m loss &rarr; &pound;1.3m profit<span>In year one, on revenues of &pound;13.5m. Team rebuilt. Pipeline restructured.</span></p></div>
+      <div class="proof-card fade-up delay-2"><p class="proof-company">SGS Group</p><p class="proof-challenge">CHF6.6bn revenues, 97,000 employees — but ecommerce was fragmented across subsidiaries with no coherent strategy.</p><p class="proof-result">104% ecommerce revenue growth<span>In two years. Five proof-of-concept pilots. &pound;2.4m in new annual revenues.</span></p></div>
+      <div class="proof-card fade-up delay-3"><p class="proof-company">Alibaba Group</p><p class="proof-challenge">European brands wanted access to China's consumers but the model didn't exist in a form western companies could execute.</p><p class="proof-result">750+ flagship stores launched<span>Platform reached &pound;400m/month GMV in two years. Sainsbury's, Danone, House of Fraser, Body Shop, Bayern Munich.</span></p></div>
+      <div class="proof-card fade-up delay-1"><p class="proof-company">Varta (IKEA Account)</p><p class="proof-challenge">Varta had tried and failed to win IKEA — the world's largest battery retailer — as a customer for over a decade.</p><p class="proof-result">&pound;90m p.a. at retail<span>3-year contract. IKEA became Varta's largest global customer.</span></p></div>
+      <div class="proof-card fade-up delay-2"><p class="proof-company">Varta (Boots Account)</p><p class="proof-challenge">A major UK retailer Varta needed but couldn't crack. Wrong team, wrong approach, wrong product.</p><p class="proof-result">&pound;20m p.a. exclusive contract<span>2-year rolling deal. Added 25% to total UK revenues.</span></p></div>
+    </div>
+  </section>
+
+  <section id="brands">
+    <p class="section-label fade-up">Background</p>
+    <h2 class="section-title fade-up delay-1">Organisations I've worked for and brands I've taken to market.</h2>
+    <div class="brands-group fade-up delay-2">
+      <p class="brands-group-label">Organisations</p>
+      <div class="brands-list">
+        <span class="brand-tag">Alibaba Group</span><span class="brand-tag">eBay Europe</span><span class="brand-tag">SGS Group</span><span class="brand-tag">Electrolux Professional</span><span class="brand-tag">Varta / Spectrum Brands</span><span class="brand-tag">DP World</span><span class="brand-tag">Mars Inc</span><span class="brand-tag">Unilever</span><span class="brand-tag">Eastman Kodak</span>
+      </div>
+    </div>
+    <div class="brands-group fade-up delay-3">
+      <p class="brands-group-label">Brands Launched or Transformed</p>
+      <div class="brands-list">
+        <span class="brand-tag">Sainsbury's</span><span class="brand-tag">Danone</span><span class="brand-tag">House of Fraser</span><span class="brand-tag">The Hut Group</span><span class="brand-tag">Vitabiotics</span><span class="brand-tag">Bayern Munich</span><span class="brand-tag">Royal Mail</span><span class="brand-tag">Body Shop</span><span class="brand-tag">OTTO</span><span class="brand-tag">Boots</span><span class="brand-tag">IKEA</span><span class="brand-tag">Nespresso</span><span class="brand-tag">American Express</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="section-label fade-up">About</p>
+    <h2 class="section-title fade-up delay-1">30 years. Four continents. One consistent result.</h2>
+    <div class="about-layout" style="margin-top:2.5rem">
+      <div class="about-photo-col fade-up delay-1">
+        <div class="about-portrait"><img src="photo.jpg" alt="Ken Ardali" /></div>
+        <p class="about-portrait-name">Ken Ardali</p>
+        <p class="about-portrait-title">Interim MD</p>
+      </div>
+      <div class="about-bio fade-up delay-2">
+        <p>I started my career as a Process Control Engineer at Unilever before moving into commercial roles at Mars and Kodak. What followed was three decades of operating at the intersection of traditional commercial leadership and the digital/international frontier.</p>
+        <p>I was one of the early senior hires at both <strong>eBay</strong> and <strong>Alibaba</strong> in Europe, building cross-border ecommerce models that didn't yet exist. I ran <strong>SGS's global ecommerce function</strong> as VP, doubling revenues in two years. Before that, I turned around <strong>Electrolux Professional UK</strong> from a loss-making subsidiary to profitability in year one.</p>
+        <p>Since 2019, I've been operating independently — advising brands on China market entry, building the ChinaHow Club, and leading interim commercial projects for international brands, logistics providers, and tech ventures.</p>
+        <p>The combination of traditional commercial depth (P&amp;L ownership, large account management, team leadership) with genuine platform and digital expertise is rare. Most commercial executives at this level haven't done it from the inside. I have.</p>
+      </div>
+      <div class="about-facts fade-up delay-3">
+        <div class="fact"><p class="fact-label">Geography</p><p class="fact-value">UK &middot; China &middot; Turkey &middot; Germany &middot; France &middot; Broader EMEA</p></div>
+        <div class="fact"><p class="fact-label">Languages</p><p class="fact-value">English (native) &middot; Turkish (fluent) &middot; German (conversational)</p></div>
+        <div class="fact"><p class="fact-label">Education</p><p class="fact-value">MSc Sloan Fellowship &mdash; London Business School<br>BEng (Hons) Electrical &amp; Electronic Engineering &mdash; Imperial College London</p></div>
+        <div class="fact"><p class="fact-label">Based in</p><p class="fact-value">Camberley, Surrey &mdash; UK</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="section-label fade-up" style="color:var(--gold)">Let's Talk</p>
+    <div class="contact-grid">
+      <div class="fade-up delay-1">
+        <h2 class="section-title light">If any of this is where you are, let's have a conversation.</h2>
+        <p class="contact-text">I work on a small number of engagements at any one time. A 30-minute conversation is the fastest way to establish fit.</p>
+        <div class="contact-items">
+          <div class="contact-item"><span class="contact-item-label">Email</span><span class="contact-item-value"><a href="mailto:kenan@ardali.co.uk">kenan@ardali.co.uk</a></span></div>
+          <div class="contact-item"><span class="contact-item-label">Phone</span><span class="contact-item-value"><a href="tel:+447952487258">+44 7952 487258</a></span></div>
+          <div class="contact-item"><span class="contact-item-label">LinkedIn</span><span class="contact-item-value"><a href="https://linkedin.com/in/ardali" target="_blank" rel="noopener">linkedin.com/in/ardali</a></span></div>
+        </div>
+        <div class="availability"><p class="availability-label">Availability</p><p class="availability-text">Currently considering new interim engagements from mid-2026. Early conversations welcome.</p></div>
+      </div>
+      <div class="contact-photo-side fade-up delay-2">
+        <div class="contact-portrait"><img src="photo.jpg" alt="Ken Ardali"></div>
+        <div class="contact-portrait-text"><p>Ken Ardali</p><p>ardali.co.uk</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Ken Ardali &middot; ardali.co.uk</p>
+    <a href="https://linkedin.com/in/ardali" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
