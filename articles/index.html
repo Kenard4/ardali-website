@@ -84,6 +84,23 @@
       .nav-links a { font-size: 0.76rem; }
     }
   </style>
+
+  <!-- Service Worker registration — prevents mobile cache-lock -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(() => {
+          // On first load after SW install, do a controlled reload so SW takes over
+          if (!sessionStorage.getItem('sw-reloaded')) {
+            navigator.serviceWorker.ready.then(reg => {
+              if (reg.active) {
+                sessionStorage.setItem('sw-reloaded', '1');
+              }
+            });
+          }
+        });
+    }
+  </script>
 </head>
 <body>
 
