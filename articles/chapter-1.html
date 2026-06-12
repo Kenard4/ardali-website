@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The World Turned Upside Down — Ken Ardali</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
   <meta name="description" content="Why 2026 is the most opportunity-rich year in global trade since the 1990s. Part 1 of The New Rules of Global Trade series by Ken Ardali.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,8 +22,8 @@
       --rule: #d8d0c4;
       --col-width: 720px;
     }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
-    body { position: relative; overflow-x: hidden; font-family: 'Libre Baskerville', Georgia, serif; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; line-height: 1.75; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Libre Baskerville', Georgia, serif; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; line-height: 1.75; }
 
     /* ── NAV ── */
     nav {
@@ -40,7 +42,7 @@
 
     /* ── HERO ── */
     .hero { margin-top: 56px; width: 100%; max-width: 100vw; max-height: 520px; overflow: hidden; position: relative; }
-    .hero img { width: 100%; height: 520px; object-fit: cover; object-position: center 20%; display: block; }
+    .hero img { width: 100%; height: 520px; object-fit: cover; display: block; }
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,39,68,0.1) 0%, rgba(26,39,68,0.65) 100%); }
 
     /* ── ARTICLE WRAPPER ── */
@@ -57,7 +59,7 @@
     /* ── HEADLINE ── */
     h1.article-title {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.7rem, 4.2vw, 2.55rem); font-weight: 800; line-height: 1.15;
+      font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15;
       color: var(--navy); margin-bottom: 12px; letter-spacing: -0.01em;
     }
     .article-deck {
@@ -145,7 +147,7 @@
     }
 
     /* ── DATA TABLE ── */
-    .data-table-wrap { margin: 2.5em 0; overflow-x: auto; -webkit-overflow-scrolling: touch; display: block; width: 100%; }
+    .data-table-wrap { margin: 2.5em 0; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; max-width: 100%; }
     .data-table-label {
       font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 700;
       letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light);
@@ -213,32 +215,32 @@
     a.li-link:hover { color: var(--gold); }
 
     /* ── RESPONSIVE ── */
-    
-    /* ── MOBILE ── */
     @media (max-width: 768px) {
-      .article-wrap { padding: 28px 16px 60px; overflow-x: hidden; }
-      .hero img { height: 240px; object-position: center 15%; }
-      h1.article-title { font-size: 1.65rem; }
+      .article-wrap { padding: 28px 16px 60px; }
+      .hero img { height: 240px; }
       .pullquote { padding: 1em 1.2em; font-size: 1rem; }
+      h1.article-title { font-size: 1.7rem; }
+      table { font-size: 0.74rem; }
       .article-meta { flex-wrap: wrap; gap: 0.5rem; }
       .highlight-box { padding: 1.4em 1.4em; }
       .cta-section { padding: 1.4em 1.4em; }
-      .chart-container { padding: 12px 8px; }
-      .series-nav-grid { grid-template-columns: repeat(2, 1fr); }
-      table { min-width: 520px; font-size: 0.74rem; }
-      .data-table-wrap { margin-left: -16px; margin-right: -16px; padding: 0 16px; }
+      .chart-container { padding: 12px 10px; }
     }
     @media (max-width: 420px) {
       .nav-links { gap: 0.75rem; }
-      .nav-links a { font-size: 0.74rem; }
+      .nav-links a { font-size: 0.76rem; }
       .nav-brand-name { font-size: 0.82rem; }
-      h1.article-title { font-size: 1.45rem; }
-      .series-nav { padding: 1em 1em; }
-      .chart-container canvas { max-width: 100% !important; }
+      h1.article-title { font-size: 1.5rem; }
+      .series-nav-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    </style>
+  
+    /* iOS Safari overflow fix — wrapper approach */
+    .page-wrapper { overflow-x: hidden; width: 100%; max-width: 100%; position: relative; }
+
+  </style>
 </head>
 <body>
+<div class="page-wrapper">
 
   <!-- NAV -->
   <nav>
@@ -532,6 +534,7 @@
       },
       options: {
         responsive: true,
+        maintainAspectRatio: true,
         plugins: {
           legend: { display: false },
           tooltip: { callbacks: { label: ctx => ' $' + ctx.raw + ' trillion' } }
@@ -562,6 +565,7 @@
       },
       options: {
         responsive: true,
+        maintainAspectRatio: true,
         plugins: {
           legend: { display: false },
           tooltip: { callbacks: { label: ctx => ' $' + ctx.raw + 'bn' } }
@@ -592,6 +596,7 @@
       options: {
         indexAxis: 'y',
         responsive: true,
+        maintainAspectRatio: true,
         plugins: {
           legend: { display: false },
           tooltip: { callbacks: { label: ctx => ' +' + ctx.raw + '%' } }
@@ -608,5 +613,6 @@
     });
   </script>
 
+</div>
 </body>
 </html>
