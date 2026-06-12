@@ -20,8 +20,8 @@
       --rule: #d8d0c4;
       --col-width: 720px;
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Libre Baskerville', Georgia, serif; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; line-height: 1.75; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body { overflow-x: hidden; font-family: 'Libre Baskerville', Georgia, serif; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; line-height: 1.75; }
 
     /* ── NAV ── */
     nav {
@@ -39,7 +39,7 @@
     .nav-links .active { color: var(--gold); }
 
     /* ── HERO ── */
-    .hero { margin-top: 56px; width: 100%; max-height: 520px; overflow: hidden; position: relative; }
+    .hero { margin-top: 56px; width: 100%; max-width: 100vw; max-height: 520px; overflow: hidden; position: relative; }
     .hero img { width: 100%; height: 520px; object-fit: cover; display: block; }
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,39,68,0.1) 0%, rgba(26,39,68,0.65) 100%); }
 
@@ -138,14 +138,14 @@
       font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--text-light);
       margin-bottom: 16px;
     }
-    .chart-container { position: relative; background: var(--off-white); padding: 20px; border-radius: 2px; }
+    .chart-container { position: relative; background: var(--off-white); padding: 20px; border-radius: 2px; max-width: 100%; overflow: hidden; }
     .chart-source {
       font-family: 'Inter', sans-serif; font-size: 0.7rem; color: var(--text-light);
       margin-top: 10px; font-style: italic;
     }
 
     /* ── DATA TABLE ── */
-    .data-table-wrap { margin: 2.5em 0; overflow-x: auto; }
+    .data-table-wrap { margin: 2.5em 0; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; max-width: 100%; }
     .data-table-label {
       font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 700;
       letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light);
@@ -155,7 +155,7 @@
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 16px;
     }
-    table { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; font-size: 0.82rem; }
+    table { width: 100%; min-width: 580px; border-collapse: collapse; font-family: 'Inter', sans-serif; font-size: 0.82rem; }
     thead tr { background: var(--navy); color: #fff; }
     thead th { padding: 10px 12px; text-align: left; font-weight: 600; letter-spacing: 0.03em; font-size: 0.78rem; }
     tbody tr { border-bottom: 1px solid var(--rule); }
@@ -214,11 +214,22 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      .article-wrap { padding: 32px 16px 60px; }
-      .hero img { height: 280px; }
-      .pullquote { padding: 1em 1.2em; font-size: 1.05rem; }
-      h1.article-title { font-size: 1.8rem; }
-      table { font-size: 0.75rem; }
+      .article-wrap { padding: 28px 16px 60px; }
+      .hero img { height: 240px; }
+      .pullquote { padding: 1em 1.2em; font-size: 1rem; }
+      h1.article-title { font-size: 1.7rem; }
+      table { font-size: 0.74rem; }
+      .article-meta { flex-wrap: wrap; gap: 0.5rem; }
+      .highlight-box { padding: 1.4em 1.4em; }
+      .cta-section { padding: 1.4em 1.4em; }
+      .chart-container { padding: 12px 10px; }
+    }
+    @media (max-width: 420px) {
+      .nav-links { gap: 0.75rem; }
+      .nav-links a { font-size: 0.76rem; }
+      .nav-brand-name { font-size: 0.82rem; }
+      h1.article-title { font-size: 1.5rem; }
+      .series-nav-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
