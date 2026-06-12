@@ -17,8 +17,8 @@
       --text: #1a1a1a; --text-mid: #444; --text-light: #777;
       --rule: #d8d0c4;
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body { overflow-x: hidden; font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; }
 
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,39,68,0.97); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 56px; }
@@ -69,6 +69,19 @@
     @media (max-width: 600px) {
       .chapter-card { grid-template-columns: 50px 1fr; }
       .chapter-num { font-size: 1.8rem; }
+    }
+    @media (max-width: 768px) {
+      .page-header { padding: 80px 5% 40px; }
+      .page-title { font-size: 1.8rem; }
+      .chapter-card { grid-template-columns: 50px 1fr; gap: 0; padding: 20px 0; }
+      .chapter-num { font-size: 1.8rem; }
+      .chapter-title { font-size: 1.1rem; }
+      .chapters-wrap { padding: 40px 5% 60px; }
+      .about-inner { flex-direction: column; }
+    }
+    @media (max-width: 420px) {
+      .nav-links { gap: 0.75rem; }
+      .nav-links a { font-size: 0.76rem; }
     }
   </style>
 </head>
