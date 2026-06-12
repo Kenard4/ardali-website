@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -42,7 +42,7 @@
 
     /* ── HERO ── */
     .hero { margin-top: 56px; width: 100%; max-width: 100vw; max-height: 520px; overflow: hidden; position: relative; }
-    .hero img { width: 100%; height: 520px; object-fit: cover; display: block; }
+    .hero img { width: 100%; height: 520px; object-fit: cover; object-position: center 25%; display: block; }
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,39,68,0.1) 0%, rgba(26,39,68,0.65) 100%); }
 
     /* ── ARTICLE WRAPPER ── */
@@ -59,7 +59,7 @@
     /* ── HEADLINE ── */
     h1.article-title {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.5rem, 4vw, 2.3rem); font-weight: 800; line-height: 1.15;
+      font-size: clamp(1.4rem, 3.5vw, 1.9rem); font-weight: 800; line-height: 1.15;
       color: var(--navy); margin-bottom: 12px; letter-spacing: -0.01em;
     }
     .article-deck {
@@ -511,10 +511,12 @@
   </article>
 
   <!-- CHARTS JS -->
-  <script>
-    const NAVY = '#1a2744', GOLD = '#c9a84c', GOLD2 = '#e0bf72', GREY = '#e8e8e4';
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+  window.addEventListener('load', function() {
+    if (typeof Chart === 'undefined') return;
+    const NAVY = '#1a2744', GOLD = '#c9a84c', GREY = '#e8e8e4';
 
-    // CHART A — Global CBT Market Size Line Chart
     new Chart(document.getElementById('chartA'), {
       type: 'line',
       data: {
@@ -522,96 +524,73 @@
         datasets: [{
           label: 'Market Size (USD tn)',
           data: [0.78, 0.92, 1.08, 1.27, 1.47, 1.60, 1.74],
-          borderColor: NAVY,
-          backgroundColor: 'rgba(26,39,68,0.07)',
-          borderWidth: 2.5,
-          pointBackgroundColor: GOLD,
-          pointBorderColor: NAVY,
-          pointRadius: 5,
-          fill: true,
-          tension: 0.3
+          borderColor: NAVY, backgroundColor: 'rgba(26,39,68,0.07)',
+          borderWidth: 2.5, pointBackgroundColor: GOLD, pointBorderColor: NAVY,
+          pointRadius: 5, fill: true, tension: 0.3
         }]
       },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        plugins: {
-          legend: { display: false },
-          tooltip: { callbacks: { label: ctx => ' $' + ctx.raw + ' trillion' } }
-        },
+      options: { responsive: true, maintainAspectRatio: true,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' 
+
+</div>
+</body>
+</html>
+ + ctx.raw + ' trillion' } } },
         scales: {
-          y: {
-            beginAtZero: false,
-            min: 0.5,
-            ticks: { callback: v => '$' + v + 'tn', font: { family: 'Inter', size: 11 } },
-            grid: { color: GREY }
-          },
+          y: { beginAtZero: false, min: 0.5, ticks: { callback: v => '
+
+</div>
+</body>
+</html>
+ + v + 'tn', font: { family: 'Inter', size: 11 } }, grid: { color: GREY } },
           x: { ticks: { font: { family: 'Inter', size: 11 } }, grid: { display: false } }
         }
       }
     });
 
-    // CHART B — China Outbound CBT Bar Chart
     new Chart(document.getElementById('chartB'), {
       type: 'bar',
       data: {
         labels: ['2018','2020','2022','2023','2024'],
-        datasets: [{
-          label: 'China Outbound CBT (USD bn)',
-          data: [47, 98, 185, 225, 280],
-          backgroundColor: [NAVY, NAVY, NAVY, NAVY, GOLD],
-          borderRadius: 2,
-        }]
+        datasets: [{ label: 'China Outbound CBT (USD bn)', data: [47, 98, 185, 225, 280],
+          backgroundColor: [NAVY, NAVY, NAVY, NAVY, GOLD], borderRadius: 2 }]
       },
-      options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        plugins: {
-          legend: { display: false },
-          tooltip: { callbacks: { label: ctx => ' $' + ctx.raw + 'bn' } }
-        },
+      options: { responsive: true, maintainAspectRatio: true,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' 
+
+</div>
+</body>
+</html>
+ + ctx.raw + 'bn' } } },
         scales: {
-          y: {
-            beginAtZero: true,
-            ticks: { callback: v => '$' + v + 'bn', font: { family: 'Inter', size: 11 } },
-            grid: { color: GREY }
-          },
+          y: { beginAtZero: true, ticks: { callback: v => '
+
+</div>
+</body>
+</html>
+ + v + 'bn', font: { family: 'Inter', size: 11 } }, grid: { color: GREY } },
           x: { ticks: { font: { family: 'Inter', size: 11 } }, grid: { display: false } }
         }
       }
     });
 
-    // CHART C — EMEA Outbound Growth Rates Horizontal Bar
     new Chart(document.getElementById('chartC'), {
       type: 'bar',
       data: {
-        labels: ['T\u00fcrkiye', 'China', 'United Kingdom', 'European Union'],
-        datasets: [{
-          label: 'Outbound CBT Growth 2024 (% YoY)',
-          data: [31, 22, 14, 9],
-          backgroundColor: [GOLD, NAVY, '#4a6fa5', '#8aa0c4'],
-          borderRadius: 2,
-        }]
+        labels: ['Türkiye', 'China', 'United Kingdom', 'European Union'],
+        datasets: [{ label: 'Outbound CBT Growth 2024 (% YoY)', data: [31, 22, 14, 9],
+          backgroundColor: [GOLD, NAVY, '#4a6fa5', '#8aa0c4'], borderRadius: 2 }]
       },
-      options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: true,
-        plugins: {
-          legend: { display: false },
-          tooltip: { callbacks: { label: ctx => ' +' + ctx.raw + '%' } }
-        },
+      options: { indexAxis: 'y', responsive: true, maintainAspectRatio: true,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' +' + ctx.raw + '%' } } },
         scales: {
-          x: {
-            beginAtZero: true,
-            ticks: { callback: v => '+' + v + '%', font: { family: 'Inter', size: 11 } },
-            grid: { color: GREY }
-          },
+          x: { beginAtZero: true, ticks: { callback: v => '+' + v + '%', font: { family: 'Inter', size: 11 } }, grid: { color: GREY } },
           y: { ticks: { font: { family: 'Inter', size: 12 } }, grid: { display: false } }
         }
       }
     });
-  </script>
+  });
+</script>
 
 </div>
 </body>
