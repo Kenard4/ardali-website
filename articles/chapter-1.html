@@ -532,34 +532,30 @@
 <script>
   window.addEventListener('load', function() {
     if (typeof Chart === 'undefined') return;
-    const NAVY = '#1a2744', GOLD = '#c9a84c', GREY = '#e8e8e4';
+    var NAVY = '#1a2744', GOLD = '#c9a84c', GREY = '#e8e8e4';
 
     new Chart(document.getElementById('chartA'), {
       type: 'line',
       data: {
         labels: ['2020','2021','2022','2023','2024','2025','2026F'],
         datasets: [{
-          label: 'Market Size (USD tn)',
+          label: 'Global CBT Market Size (USD tn)',
           data: [0.78, 0.92, 1.08, 1.27, 1.47, 1.60, 1.74],
           borderColor: NAVY, backgroundColor: 'rgba(26,39,68,0.07)',
           borderWidth: 2.5, pointBackgroundColor: GOLD, pointBorderColor: NAVY,
           pointRadius: 5, fill: true, tension: 0.3
         }]
       },
-      options: { responsive: true, maintainAspectRatio: true,
-        plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' 
-
-</div>
-</body>
-</html>
- + ctx.raw + ' trillion' } } },
+      options: {
+        responsive: true, maintainAspectRatio: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: function(ctx) { return ctx.raw + ' trillion'; } } }
+        },
         scales: {
-          y: { beginAtZero: false, min: 0.5, ticks: { callback: v => '
-
-</div>
-</body>
-</html>
- + v + 'tn', font: { family: 'Inter', size: 11 } }, grid: { color: GREY } },
+          y: { beginAtZero: false, min: 0.5,
+               ticks: { callback: function(v) { return v + 'tn'; }, font: { family: 'Inter', size: 11 } },
+               grid: { color: GREY } },
           x: { ticks: { font: { family: 'Inter', size: 11 } }, grid: { display: false } }
         }
       }
@@ -572,20 +568,16 @@
         datasets: [{ label: 'China Outbound CBT (USD bn)', data: [47, 98, 185, 225, 280],
           backgroundColor: [NAVY, NAVY, NAVY, NAVY, GOLD], borderRadius: 2 }]
       },
-      options: { responsive: true, maintainAspectRatio: true,
-        plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' 
-
-</div>
-</body>
-</html>
- + ctx.raw + 'bn' } } },
+      options: {
+        responsive: true, maintainAspectRatio: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: function(ctx) { return ctx.raw + 'bn'; } } }
+        },
         scales: {
-          y: { beginAtZero: true, ticks: { callback: v => '
-
-</div>
-</body>
-</html>
- + v + 'bn', font: { family: 'Inter', size: 11 } }, grid: { color: GREY } },
+          y: { beginAtZero: true,
+               ticks: { callback: function(v) { return v + 'bn'; }, font: { family: 'Inter', size: 11 } },
+               grid: { color: GREY } },
           x: { ticks: { font: { family: 'Inter', size: 11 } }, grid: { display: false } }
         }
       }
@@ -594,20 +586,28 @@
     new Chart(document.getElementById('chartC'), {
       type: 'bar',
       data: {
-        labels: ['Türkiye', 'China', 'United Kingdom', 'European Union'],
+        labels: ['Turkiye', 'China', 'United Kingdom', 'European Union'],
         datasets: [{ label: 'Outbound CBT Growth 2024 (% YoY)', data: [31, 22, 14, 9],
           backgroundColor: [GOLD, NAVY, '#4a6fa5', '#8aa0c4'], borderRadius: 2 }]
       },
-      options: { indexAxis: 'y', responsive: true, maintainAspectRatio: true,
-        plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ' +' + ctx.raw + '%' } } },
+      options: {
+        indexAxis: 'y', responsive: true, maintainAspectRatio: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: function(ctx) { return '+' + ctx.raw + '%'; } } }
+        },
         scales: {
-          x: { beginAtZero: true, ticks: { callback: v => '+' + v + '%', font: { family: 'Inter', size: 11 } }, grid: { color: GREY } },
+          x: { beginAtZero: true,
+               ticks: { callback: function(v) { return '+' + v + '%'; }, font: { family: 'Inter', size: 11 } },
+               grid: { color: GREY } },
           y: { ticks: { font: { family: 'Inter', size: 12 } }, grid: { display: false } }
         }
       }
     });
   });
 </script>
+
+
 
 </div>
 </body>
